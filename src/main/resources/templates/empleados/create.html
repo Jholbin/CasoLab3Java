@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Nuevo Empleado</title>
+</head>
+<body>
+    <h1>Registrar Empleado</h1>
+    <form th:action="@{/empleados}" method="post" th:object="${empleadoForm}">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" th:field="*{nombre}">
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" th:field="*{apellido}">
+        </div>
+        <div>
+            <label for="salario">Salario</label>
+            <input id="salario" type="text" th:field="*{salario}">
+        </div>
+        <div>
+            <label for="puesto">Puesto</label>
+            <input id="puesto" type="text" th:field="*{puesto}">
+        </div>
+        <button>Registrar</button>
+    </form>
+</body>

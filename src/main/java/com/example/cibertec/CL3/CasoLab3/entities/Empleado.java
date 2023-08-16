@@ -1,18 +1,14 @@
 package com.example.cibertec.CL3.CasoLab3.entities;
 
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.CreationTimestamp;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
 @Table(name = "empleado")
-public class Empleado {
+@Entity
+public class Empleado  {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +18,17 @@ public class Empleado {
     String salario;
     String puesto;
 
-    @CreationTimestamp
-    LocalDateTime fechaRegistro;
+    public Empleado() {}
+    
+    public Empleado( String nombre, String apellido, String salario, String puesto
+    ) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.salario = salario;
+        this.puesto = puesto;
+
+        
+    }
 
     public int getId() {
         return id;
@@ -65,11 +70,7 @@ public class Empleado {
         this.puesto = puesto;
     }
 
-    public LocalDateTime getFechaRegistro() {
-        return fechaRegistro;
-    }
 
-    public void setFechaRegistro(LocalDateTime fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
+
+        
 }
