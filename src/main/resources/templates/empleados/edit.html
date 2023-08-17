@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+<body>
+    
+    <form th:action="@{/empleados/{id}/delete(id=${empleado.id})}" method="post">
+        <button>Eliminar</button>
+    </form>
+
+    <h1>Editar Empleado</h1>
+    <form th:action="@{/empleados/{id}(id=${empleado.id})}" method="post" th:object="${empleado}">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" th:field="*{nombre}">
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" th:field="*{apellido}">
+        </div>
+        <div>
+            <label for="salario">Salario</label>
+            <input id="salario" type="text" th:field="*{salario}">
+        </div>
+        <div>
+            <label for="puesto">Puesto</label>
+            <input id="puesto" type="text" th:field="*{puesto}">
+        </div>
+        <button>Guardar</button>
+    </form>
+</body>

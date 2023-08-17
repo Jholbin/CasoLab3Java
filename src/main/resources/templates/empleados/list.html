@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Empleados</title>
+</head>
+<body>
+    <div th:insert="~{fragments :: header}"></div>
+    <h1>Empleados</h1>
+    <p>CL3, es una empresa con muchos empleados altamente capacitados” </p>
+    <a th:href="@{/empleados/reporte}">Reporte</a>
+    <a th:href="@{/empleados/create}">Registra nuevo empleado</a>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Salario</td>
+                <td>Puesto</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="empleado : ${listaEmpleados}">
+                <td th:text="${empleado.id}"></td>
+                <td th:text="${empleado.nombre}"></td>
+                <td th:text="${empleado.apellido}"></td>
+                <td th:text="${empleado.salario}"></td>
+                <td th:text="${empleado.puesto}"></td>
+                <td>       
+                    <a th:href="@{/empleados/{id}/edit(id=${empleado.id})}">Editar</a>
+                </td>
+                <td>       
+                    <a th:href="@{/empleados/{id}(id=${empleado.id})}">Detalle</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <footer>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </footer>
+</body>
